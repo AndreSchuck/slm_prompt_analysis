@@ -11,5 +11,6 @@ wheels/
 
 .env
 *.pdf
-Data/staging_area/
+
+Data/staging_area
 Data/results/*/
