@@ -1,0 +1,35 @@
+Classifique o sentimento texto de acordo com um dos seguintes rólutos:
+{%- if labels is not none -%}
+{% for value, label in labels %} {{ value }} para o sentimento {{ label }} {%- if loop.index != loop.length -%}, {% else %}.{%- endif -%}
+{% endfor %}
+{%- endif %}
+A saída produzida deverá obedecer o esquema JSON especificado abaixo, delimitado entre os marcadores <schema> e </schema>.
+<schema>
+{
+    'type': 'object',
+    'description': Objeto JSON contendo a classificação de sentimento do texto de entrada.',
+    'properties': {
+        'sentimento': 
+        {
+            'type': 'integer',
+            'description': 'Polaridade geral do sentimento expressado no texto de entrada.',
+            'enum': [
+                {%- for value, label in labels -%} {{ value }} {%- if loop.index != loop.length -%}, {% else %}{%- endif -%} {%- endfor -%}
+                ]
+            }
+        },
+  'required': ['sentimento']
+}
+</schema>
+
+A classificação deverá conter somente o objeto JSON definido acima.
+
+{% for text, label in examples %}
+Exemplo {{ loop.index }}
+Entrada:{{ text }}
+Saída:{'sentimento':{{ label }}}
+
+{% endfor %}
+Classificação
+Entrada: {{ input_text }}
+Saída:

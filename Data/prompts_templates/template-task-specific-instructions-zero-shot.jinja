@@ -1,0 +1,10 @@
+Classifique o sentimento texto abaixo de acordo com um dos seguintes rólutos:
+{%- if labels is not none -%}
+{% for value, label in labels %} {{ value }} para o sentimento {{ label }} {%- if loop.index != loop.length -%}, {% else %}.{%- endif -%}
+{% endfor %}
+{%- endif -%}
+ A classificação deverá conter somente o valor do rótulo associado ao sentimento do texto.
+
+Classificação
+Q: {{ input_text }}
+A:

@@ -1,0 +1,14 @@
+[project]
+name = "slm-prompt-analysis"
+version = "0.1.0"
+description = "Prompt engineering analysis for small language models on Portuguese sentiment analysis: evaluating six prompting strategies across four Brazilian Portuguese datasets."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "pandas",
+    "numpy",
+    "jinja2",
+    "tqdm",
+]

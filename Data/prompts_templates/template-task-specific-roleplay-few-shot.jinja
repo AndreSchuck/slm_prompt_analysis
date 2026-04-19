@@ -1,0 +1,16 @@
+Você está falando com um mentor que é especialista na análise de sentimentos de textos em português brasileiro.
+Este mentor especificou que sua tarefa é realizar a classificação do sentimento de textos de como acordo com um dos seguintes rólutos: 
+{%- if labels is not none -%}
+{% for value, label in labels %} {{ value }} para o sentimento {{ label }} {%- if loop.index != loop.length -%}, {% else %}.{%- endif -%}
+{% endfor %}
+{%- endif -%}
+ A classificação deverá conter somente o valor do rótulo associado ao sentimento do texto.
+{% for text, label in examples %}
+Exemplo {{ loop.index }}
+Q: {{ text }}
+A: {{ label }}
+
+{% endfor %}
+Classificação
+Q: {{ input_text }}
+A:

@@ -1,0 +1,32 @@
+Analise o sentimento do texto fornecido e classifique-o em uma escala numérica. O texto de entrada será precedido por 'Q:' e você deve fornecer apenas o valor numérico da classificação de sentimento após 'A:', sem nenhuma explicação adicional.
+
+Use a seguinte escala de classificação:
+
+{%- if labels is not none -%}
+{% for value, label in labels %}
+{{ value }} ( {{ label }} )
+{% endfor %}
+{%- endif -%}
+
+Use apenas estes valores específicos, sem valores intermediários.
+
+Diretrizes:
+* Avalie o sentimento geral predominante do texto.
+{%- if 0 in examples| list | map(attribute=1) | list %}
+* Se o texto contiver sentimentos mistos e for impossível determinar um sentimento predominante, use 0.0 para neutro.
+{%- endif %}
+* Considere o contexto ao avaliar diferentes tipos de conteúdo (notícias, posts em redes sociais, resenhas, etc.).
+* Leve em conta o tom, as palavras-chave e o assunto geral na sua avaliação.
+* Ignore informações irrelevantes como metadados, hashtags ou informações técnicas que não contribuam para o sentimento geral.
+
+Exemplos:
+{% for text, label in examples %}
+Q:{{ text }}
+A:{{ label }}
+
+{% endfor %}
+Classificação
+Q: {{ input_text }}
+A:
+
+Forneça apenas o valor numérico como resposta, sem explicações adicionais.

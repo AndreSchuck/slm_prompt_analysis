@@ -1,0 +1,9 @@
+{% for text, label in examples %}
+Exemplo {{ loop.index }}
+Q:{{ text }}
+A:{{ label }}
+
+{% endfor %}
+Classificação
+Q: {{ input_text }}
+A:
